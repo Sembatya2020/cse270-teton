@@ -43,11 +43,10 @@ jobs:
         sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
-        # Install ChromeDriver
-        CHROME_VERSION=$(google-chrome --version | cut -d " " -f3 | cut -d "." -f1)
-        wget -O /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}/chromedriver_linux64.zip"
-        sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
-        sudo chmod +x /usr/local/bin/chromedriver
+        # Install ChromeDriver using the new method
+        sudo apt-get install -y chromium-chromedriver
+        # Create symlink for compatibility
+        sudo ln -sf /usr/bin/chromedriver /usr/local/bin/chromedriver
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
