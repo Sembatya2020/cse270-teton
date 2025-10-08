@@ -22,7 +22,7 @@ class TestSmokeTest():
     self.driver.quit()
   
   def test_adminpage(self):
-    self.driver.get("http://127.0.0.1:5536/teton/1.6/admin.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
     self.driver.set_window_size(1426, 848)
     # Make sure the "Username" input box is present
     username_element = self.driver.find_element(By.ID, "username")
@@ -39,7 +39,7 @@ class TestSmokeTest():
     assert len(error_elements) > 0
   
   def test_directorypage(self):
-    self.driver.get("http://127.0.0.1:5536/teton/1.6/directory.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
     self.driver.set_window_size(1498, 848)
     # Click on the "Grid" button to display the card view
     self.driver.find_element(By.ID, "directory-grid").click()
@@ -53,7 +53,7 @@ class TestSmokeTest():
     assert len(elements) > 0
   
   def test_homepage(self):
-    self.driver.get("http://127.0.0.1:5536/teton/1.6/index.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
     self.driver.set_window_size(1417, 848)
     elements = self.driver.find_elements(By.CSS_SELECTOR, ".header-logo img")
     assert len(elements) > 0
@@ -69,7 +69,7 @@ class TestSmokeTest():
     self.driver.find_element(By.LINK_TEXT, "Join Us!").click()
   
   def test_joinpage(self):
-    self.driver.get("http://127.0.0.1:5536/teton/1.6/join.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
     self.driver.set_window_size(1382, 848)
     # Make sure the "First Name" input box is present
     first_name_element = self.driver.find_element(By.NAME, "fname")
